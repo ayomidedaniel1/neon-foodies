@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "foodly_react_native",
-    "slug": "foodly_react_native",
+    "name": "neon-foodies",
+    "slug": "neon_foodies",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,9 +23,9 @@
         "backgroundColor": "#ffffff"
       },
       "config": {
-        "package": "com.dacarnage.foodly",
+        "package": "com.neon.foodies",
         "googleMaps": {
-          "apiKey": ""
+          "apiKey": "AIzaSyCEsT6iuYQsaDMrHrjK9x2OAPqxxipaDlk"
         }
       },
       "permissions": [
@@ -33,8 +33,7 @@
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.FOREGROUND_SERVICE"
       ],
-      "package": "com.dacarnage.expofire"
-      
+      "package": "com.neon.expofire"
     },
     "web": {
       "favicon": "./assets/favicon.png"

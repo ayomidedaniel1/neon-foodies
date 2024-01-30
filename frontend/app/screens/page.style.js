@@ -5,13 +5,13 @@ const pages = StyleSheet.create({
     viewOne: { backgroundColor: COLORS.primary, height: SIZES.height },
     viewTwo: {
         backgroundColor: COLORS.offwhite,
-        height: SIZES.height - 140,
+        height: SIZES.height - 60,
         borderBottomEndRadius: 30,
         borderBottomStartRadius: 30,
     },
     viewThree: {
         backgroundColor: COLORS.offwhite,
-        height: SIZES.height - 80,
+        height: SIZES.height - 40,
         borderBottomEndRadius: 30,
         borderBottomStartRadius: 30,
     },

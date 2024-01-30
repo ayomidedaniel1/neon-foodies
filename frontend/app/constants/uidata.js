@@ -59,7 +59,7 @@ const categories = [
         "imageUrl": "https://d326fntlu7tb1e.cloudfront.net/uploads/08323562-a3c6-461d-95a3-b3817c99871b-more.png",
         "__v": 0
     }
-]
+];
 
 const restaurants = [
     {
@@ -142,7 +142,7 @@ const restaurants = [
             "longitudeDelta": 0.0221
         }
     }
-]
+];
 
 const foods = [
     {
@@ -472,9 +472,9 @@ const foods = [
         "category": "6531209dbbe4998e90af3fef",
         "time": "45 min"
     }
-]
+];
 
-const cart =  [
+const cart = [
     {
         "_id": "653b6588541d2aa2c1e89cd1",
         "userId": "6537a4448cd1bd140ebddcee",
@@ -498,7 +498,7 @@ const cart =  [
         "quantity": 2,
         "__v": 0
     }
-]
+];
 
 const profile = {
     "_id": "6537a4448cd1bd140ebddcee",
@@ -509,6 +509,34 @@ const profile = {
     "userType": "Vendor",
     "profile": "https://d326fntlu7tb1e.cloudfront.net/uploads/bdec9d7d-0544-4fc4-823d-3b898f6dbbbf-vinci_03.jpeg",
     "updatedAt": "2023-10-24T11:02:28.215Z"
-}
+};
 
-export default  {categories, restaurants, foods, cart, profile}
+const choicesList = [
+    {
+        id: 1,
+        name: 'Pick up',
+        value: "pickup",
+    },
+    {
+        id: 2,
+        name: '4 Star',
+        value: "4star",
+    },
+    {
+        id: 3,
+        name: '3 Star',
+        value: "3star",
+    },
+    {
+        id: 4,
+        name: 'Under 30 min',
+        value: "under30",
+    },
+    {
+        id: 5,
+        name: 'Recommended',
+        value: "recommended",
+    },
+];
+
+export default { categories, restaurants, foods, cart, profile, choicesList };

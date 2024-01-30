@@ -1,3 +1,5 @@
-# react-native-food-delivery-app
-Youtube link for the tutorial
-https://youtu.be/IDVOCjOPaGc
+# neon-foodies
+
+## Running app
+
+- npm run start

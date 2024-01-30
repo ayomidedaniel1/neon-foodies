@@ -11,7 +11,7 @@ import ProfileTile from "../components/ProfileTile";
 import RegistrationTile from "../components/RegistrationTile";
 
 const Profile = () => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   // const { user, isProfileLoading, error, refetch } = fetchProfile();
   const profile =
@@ -27,7 +27,7 @@ const Profile = () => {
         <View
           style={{
             backgroundColor: COLORS.offwhite,
-            height: SIZES.height - 80,
+            height: SIZES.height - 24,
             borderBottomEndRadius: 30,
             borderBottomStartRadius: 30,
           }}
@@ -66,7 +66,7 @@ const Profile = () => {
             <TouchableOpacity>
               <AntDesign name="logout" size={24} color="red" />
             </TouchableOpacity>
-            
+
           </View>
 
           <RegistrationTile
