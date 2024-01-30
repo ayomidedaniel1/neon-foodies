@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 import uidata from '../constants/uidata';
 import { COLORS } from '../constants/theme';
 
-const ChoicesList = () => {
+const ChoicesList = ({ setSelectedChoice, setSelectedSection }) => {
   const [selected, setSelected] = useState(null);
 
   const handlePress = (item) => {
     if (selected === item.value) {
       setSelected(null);
+      setSelectedChoice(null);
+      setSelectedSection(null);
     } else {
       setSelected(item.value);
+      setSelectedChoice(item.value);
+      setSelectedSection('restaurant');
     }
   };
 
@@ -44,6 +48,7 @@ const ChoicesList = () => {
               marginHorizontal: 10,
               fontFamily: 'regular',
               fontSize: 13,
+              color: item.value === selected ? COLORS.lightWhite : COLORS.gray,
             }}>{item.name}</Text>
           </TouchableOpacity>
         )}

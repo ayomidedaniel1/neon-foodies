@@ -12,6 +12,7 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSection, setSelectedSection] = useState(null);
   const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedChoice, setSelectedChoice] = useState(null);
 
   return (
     <SafeAreaView>
@@ -29,7 +30,10 @@ const Home = () => {
               setSelectedValue={setSelectedValue}
             />
 
-            <ChoicesList />
+            <ChoicesList
+              setSelectedChoice={setSelectedChoice}
+              setSelectedSection={setSelectedSection}
+            />
           </ScrollView>
 
         </View>
