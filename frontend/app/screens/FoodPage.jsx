@@ -1,7 +1,7 @@
 import { FlatList, Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Ionicons, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CartCountContext } from '../context/CartCountContext';
 import { COLORS, SIZES } from '../constants/theme';
 import Counter from '../components/Counter';
@@ -15,6 +15,9 @@ const FoodPage = ({ route, navigation }) => {
   const [count, setCount] = useState(1);
   const [preference, setPreference] = useState('');
   // const [cartCount, setCartCount] = useContext(CartCountContext)
+
+  let sendToOrderPage;
+  const id = item.restaurant;
 
   const handleAdditives = (newAdditive) => {
     setAdditives((prevAdditives) => {
@@ -30,6 +33,43 @@ const FoodPage = ({ route, navigation }) => {
         return [...prevAdditives, newAdditive];
       }
     });
+  };
+
+  const handlePress = (item) => {
+    const cartItem = {
+      productId: item._id,
+      additives: additives,
+      quantity: count,
+      totalPrice: (item.price + totalPrice) * count
+    };
+    addToCart(cartItem);
+  };
+
+  sendToOrderPage = {
+    orderItem: {
+      foodId: item._id,
+      additives: additives,
+      quantity: count,
+      price: (item.price + totalPrice) * count,
+      intructions: preference,
+    },
+    title: item.title,
+    description: item.description,
+    imageUrl: item.imageUrl[0],
+    restaurant: id,
+  };
+
+  const addToCart = async (cartItem) => { };
+
+  useEffect(() => {
+    calculatePrice();
+  }, [additives]);
+
+  const calculatePrice = () => {
+    const total = additives.reduce((sum, additive) => {
+      return sum + parseFloat(additive.price);
+    }, 0);
+    setTotalPrice(total);
   };
 
   return (
@@ -142,7 +182,7 @@ const FoodPage = ({ route, navigation }) => {
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPress={() => navigation.navigate('order-page')}
+                onPress={() => navigation.navigate('order-page', sendToOrderPage)}
                 style={{ backgroundColor: COLORS.primary, paddingHorizontal: 80, borderRadius: 30, }}
               >
                 <Text style={[styles.title, { color: COLORS.lightWhite, marginTop: 5, alignItems: 'center', }]}>Order</Text>
