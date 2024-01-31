@@ -11,6 +11,7 @@ import BottomTab from './app/navigation/BottomTab';
 import { COLORS } from './app/constants/theme';
 import { UserLocationContext } from './app/context/UserLocationContext';
 import { UserReversedGeoCode } from './app/context/UserReversedGeoCode';
+import FoodNavigator from './app/navigation/FoodNavigator';
 
 NavigationBar.setBackgroundColorAsync(COLORS.primary);
 
@@ -67,6 +68,12 @@ export default function App () {
             <Stack.Screen
               name='bottom-navigation'
               component={BottomTab}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name='food-navigation'
+              component={FoodNavigator}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

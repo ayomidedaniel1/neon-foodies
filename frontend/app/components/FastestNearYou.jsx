@@ -2,13 +2,11 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import uidata from '../constants/uidata';
 import FoodComponent from './FoodComponent';
-import { useNavigation } from '@react-navigation/native';
 
-const NewFoodsList = () => {
-  const navigation = useNavigation();
+const FastestNearYou = () => {
 
   const renderItem = ({ item }) => (
-    <FoodComponent item={item} onPress={() => navigation.navigate('food-navigation', { item })} />
+    <FoodComponent item={item} onPress={() => { }} />
   );
 
   return (
@@ -26,4 +24,4 @@ const NewFoodsList = () => {
   );
 };
 
-export default NewFoodsList;
+export default FastestNearYou;
