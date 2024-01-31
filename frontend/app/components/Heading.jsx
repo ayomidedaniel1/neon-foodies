@@ -1,6 +1,6 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { COLORS } from '../constants/theme';
 
 const Heading = ({ heading, onPress }) => {
@@ -8,9 +8,9 @@ const Heading = ({ heading, onPress }) => {
     <View style={styles.heading}>
       <Text style={styles.headingTxt}>{heading}</Text>
 
-      <Pressable onPress={onPress}>
+      <TouchableOpacity onPress={onPress}>
         <Ionicons name='grid' size={20} color={COLORS.secondary} />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };
