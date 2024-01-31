@@ -12,6 +12,7 @@ import { COLORS } from './app/constants/theme';
 import { UserLocationContext } from './app/context/UserLocationContext';
 import { UserReversedGeoCode } from './app/context/UserReversedGeoCode';
 import FoodNavigator from './app/navigation/FoodNavigator';
+import RestaurantPage from './app/navigation/RestaurantPage';
 
 NavigationBar.setBackgroundColorAsync(COLORS.primary);
 
@@ -74,6 +75,12 @@ export default function App () {
             <Stack.Screen
               name='food-navigation'
               component={FoodNavigator}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name='restaurant-page'
+              component={RestaurantPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

@@ -1,4 +1,4 @@
-import { FlatList, Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Platform, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Ionicons, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import React, { useContext, useEffect, useState } from 'react';
@@ -197,7 +197,6 @@ const FoodPage = ({ route, navigation }) => {
       </View>
       {/* </View> */}
 
-      {/* <StatusBar barStyle={'default'} backgroundColor={COLORS.primary} /> */}
     </View>
   );
 };
