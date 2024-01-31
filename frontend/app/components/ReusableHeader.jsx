@@ -10,22 +10,22 @@ const ReusableHeader = ({ title, backbtn }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.outerStyle}>
-      {backbtn === false? (
+      {backbtn === false ? (
         <View></View>
-       
+
       ) : (
         <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={styles.backbtn}
-      >
-         <Ionicons
+          onPress={() => navigation.goBack()}
+          style={styles.backbtn}
+        >
+          <Ionicons
             name='chevron-back-circle'
             size={30}
             color={COLORS.primary}
-        />
-      </TouchableOpacity>
+          />
+        </TouchableOpacity>
       )}
-     
+
 
       <Text style={styles.heading}>{title}</Text>
 

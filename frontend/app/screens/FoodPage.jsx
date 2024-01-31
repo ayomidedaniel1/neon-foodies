@@ -88,11 +88,11 @@ const FoodPage = ({ route, navigation }) => {
           <Ionicons name='chevron-back-circle' size={30} color={COLORS.primary} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.shareBtn}>
+        <TouchableOpacity onPress={() => { }} style={styles.shareBtn}>
           <MaterialCommunityIcons name='share-circle' size={30} color={COLORS.primary} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.goBack()} style={{ position: 'absolute', bottom: 25, right: 3, }}>
+        <TouchableOpacity onPress={() => { }} style={{ position: 'absolute', bottom: 25, right: 3, }}>
           <View style={styles.restBtn}>
             <Text style={styles.restTxt}>Open the Store</Text>
           </View>

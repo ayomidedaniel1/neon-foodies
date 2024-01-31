@@ -3,15 +3,15 @@ import { View, useWindowDimensions } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 
 const FirstRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
+  <View style={{ flex: 1, backgroundColor: '#fff' }} />
 );
 
 const SecondRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#673ab7' }} />
+  <View style={{ flex: 1, backgroundColor: '#fff' }} />
 );
 
 const ThirdRoute = () => (
-  <View style={{ flex: 1, backgroundColor: '#413cb7' }} />
+  <View style={{ flex: 1, backgroundColor: '#fff' }} />
 );
 
 const renderScene = SceneMap({

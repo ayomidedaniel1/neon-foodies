@@ -17,7 +17,7 @@ const NearbyRestaurants = () => {
         style={{ marginTop: 5, rowGap: 10, }}
         scrollEnabled
         renderItem={({ item }) => (
-          <StoreComponent item={item} onPress={() => navigation.navigate('restaurant-page')} />
+          <StoreComponent item={item} onPress={() => navigation.navigate('restaurant', item)} />
         )}
       />
     </View>
