@@ -10,10 +10,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import ReusableHeader from "../components/ReusableHeader";
 import { RatingInput, Rating } from "react-native-stock-star-rating";
 import { COLORS, SIZES } from "../constants/theme";
-import { AssetImage } from "../components";
+import AssetImage from "../components/AssetImage";
 
 const AddRating = () => {
   const [rating, setRating] = useState(0);
+
   return (
     <SafeAreaView style={{ height: SIZES.height }}>
       <Image
