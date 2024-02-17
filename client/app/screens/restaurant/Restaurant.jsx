@@ -1,17 +1,34 @@
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useRoute } from '@react-navigation/native';
 import { RatingInput } from 'react-native-stock-star-rating';
 
 import RestaurantPage from '../../navigation/RestaurantPage';
 import NetworkImage from '../../components/NetworkImage';
 import { COLORS, SIZES } from '../../constants/theme';
+import GoogleApiServices from '../../hook/GoogleApiServices';
+import { UserLocationContext } from '../../context/UserLocationContext';
 
 const Restaurant = ({ navigation }) => {
   const route = useRoute();
+  const [distanceTime, setDistanceTime] = useState({});
+  const { location, setLocation } = useContext(UserLocationContext);
   const item = route.params;
-  console.log(item);
+
+  useEffect(() => {
+    GoogleApiServices.calculateDistanceAndTime(
+      item.coords.latitude,
+      item.coords.longitude,
+      location.coords.latitude,
+      location.coords.longitude,
+    ).then((result) => {
+      if (result) {
+        setDistanceTime(result);
+      }
+    });
+    console.log(distanceTime);
+  }, []);
 
   return (
     <View >
@@ -41,7 +58,24 @@ const Restaurant = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ height: 200 }}></View>
+      <View style={{ marginTop: 8, marginHorizontal: 8, marginBottom: 10 }}>
+        <Text style={styles.title}>{item.title}</Text>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+          <Text style={[styles.small, { color: COLORS.gray }]}>Distance</Text>
+          <Text style={[styles.small, { fontFamily: 'regular' }]}>{distanceTime.distance}</Text>
+        </View>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+          <Text style={[styles.small, { color: COLORS.gray }]}>Prep and Delivery Time</Text>
+          <Text style={[styles.small, { fontFamily: 'regular' }]}>{item.title}</Text>
+        </View>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+          <Text style={[styles.small, { color: COLORS.gray }]}>Cost</Text>
+          <Text style={[styles.small, { fontFamily: 'regular' }]}>{distanceTime.finalPrice}</Text>
+        </View>
+      </View>
 
       <View style={{ height: 400, }}>
         <RestaurantPage />
@@ -70,6 +104,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
+    fontFamily: 'medium',
+    color: COLORS.black,
+  },
+  small: {
+    fontSize: 13,
     fontFamily: 'medium',
     color: COLORS.black,
   },

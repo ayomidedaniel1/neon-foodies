@@ -1,23 +1,20 @@
 import axios from "axios";
-
-const key = process.env.GOOGLE_MAPS_API_KEY;
+import { GOOGLE_MAPS_API_KEY } from '@env';
 
 const calculateDistanceAndTime = async (startLat, startLng, destinationLat, destinationLng, mode = 'bicycling') => {
-  const apiKey = key;
+  const apiKey = GOOGLE_MAPS_API_KEY;
   const baseUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?";
   const ratePerKm = 1;
 
   const requestUrl = `${baseUrl}origins=${startLat},${startLng}&destinations=${destinationLat},${destinationLng}&mode=${mode}&key=${apiKey}`;
 
   try {
-    const response = await fetch(requestUrl);
-    const data = await response.json();
-
+    const response = await axios.get(requestUrl);
 
     // Ensure the request was successful and there are results
-    if (data.status === "OK" && data.rows[0].elements[0].status === "OK") {
-      const distance = data.rows[0].elements[0].distance.text;
-      const duration = data.rows[0].elements[0].duration.text;
+    if (response.data.status === "OK" && response.data.rows[0].elements[0].status === "OK") {
+      const distance = response.data.rows[0].elements[0].distance.text;
+      const duration = response.data.rows[0].elements[0].duration.text;
 
       const distanceInKm = parseFloat(distance.replace(' km', ''));
       const price = distanceInKm * ratePerKm;
@@ -29,7 +26,7 @@ const calculateDistanceAndTime = async (startLat, startLng, destinationLat, dest
         finalPrice
       };
     } else {
-      console.error("Error calculating distance and duration:", data.status);
+      console.error("Error calculating distance and duration:", response.data.status);
       return null;
     }
   } catch (error) {
@@ -55,7 +52,7 @@ const fetchDirections = async (
 ) => {
   try {
     const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${startLat},${startLng}&destination=${destinationLat},${destinationLng}&key=${apiKey}`;
-    const response = await fetch(url);
+    const response = await axios.get(url);
     const data = await response.json().then((data) => {
       setDirections(data);
       const encodedPolyline = data.routes[0].overview_polyline.points;
