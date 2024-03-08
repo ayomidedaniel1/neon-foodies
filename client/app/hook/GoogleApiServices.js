@@ -28,7 +28,7 @@ const calculateDistanceAndTime = async (startLat, startLng, destinationLat, dest
       };
     } else {
       console.error("Error calculating distance and duration:", response.data.status);
-      console.log(response.data);
+      // console.log(response.data);
       return null;
     }
   } catch (error) {

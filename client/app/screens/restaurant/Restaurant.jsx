@@ -30,6 +30,8 @@ const Restaurant = ({ navigation }) => {
     console.log(distanceTime);
   }, []);
 
+  const totalTime = GoogleApiServices.extractNumbers(distanceTime.duration)[0] + GoogleApiServices.extractNumbers(item.time)[0];
+
   return (
     <View >
       <View>
@@ -68,7 +70,7 @@ const Restaurant = ({ navigation }) => {
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
           <Text style={[styles.small, { color: COLORS.gray }]}>Prep and Delivery Time</Text>
-          <Text style={[styles.small, { fontFamily: 'regular' }]}>{item.title}</Text>
+          <Text style={[styles.small, { fontFamily: 'regular' }]}>{totalTime} min</Text>
         </View>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
@@ -77,7 +79,7 @@ const Restaurant = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ height: 400, }}>
+      <View style={{ height: SIZES.height / 1.5, }}>
         <RestaurantPage />
       </View>
     </View>

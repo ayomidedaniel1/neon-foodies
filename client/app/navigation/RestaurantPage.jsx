@@ -2,6 +2,10 @@ import * as React from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 
+import Menu from '../screens/restaurant/Menu';
+import Directions from '../screens/restaurant/Directions';
+import New from '../screens/restaurant/New';
+
 const FirstRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#fff' }} />
 );
@@ -15,9 +19,9 @@ const ThirdRoute = () => (
 );
 
 const renderScene = SceneMap({
-  first: FirstRoute,
-  second: SecondRoute,
-  third: ThirdRoute,
+  first: Menu,
+  second: Directions,
+  third: New,
 });
 
 const RestaurantPage = () => {
