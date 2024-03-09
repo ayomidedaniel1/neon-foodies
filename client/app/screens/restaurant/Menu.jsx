@@ -19,7 +19,7 @@ const Menu = () => {
         scrollEnabled
         renderItem={({ item }) => (
           <View>
-            <FoodTile item={item} />
+            <FoodTile item={item} showDetails={() => navigation.navigate('food-nav', item)} />
           </View>
         )}
       />
