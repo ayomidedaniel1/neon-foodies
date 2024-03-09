@@ -9,14 +9,16 @@ import {
 } from "react-native";
 import React, { useState, useRef, useContext } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "./login.style";
 import LottieView from "lottie-react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
+
+import styles from "./login.style";
 import { COLORS, SIZES } from "../constants/theme";
 import { BackBtn, Button } from "../components";
 import { UserLocationContext } from "../context/UserLocationContext";
+
 const validationSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, "Password must be at least 8 character")
@@ -41,11 +43,11 @@ const SignUp = ({ navigation }) => {
     Alert.alert("Invalid Form", "Please provide all required fields", [
       {
         text: "Cancel",
-        onPress: () => {},
+        onPress: () => { },
       },
       {
         text: "Continue",
-        onPress: () => {},
+        onPress: () => { },
       },
       { defaultIndex: 1 },
     ]);
@@ -62,7 +64,7 @@ const SignUp = ({ navigation }) => {
       if (response.status === 201) {
         setLoader(false);
 
-        navigation.naviggate('login')
+        navigation.naviggate('login');
 
       } else {
         setLogin(false);
@@ -70,11 +72,11 @@ const SignUp = ({ navigation }) => {
         Alert.alert("Error Logging in ", "Please provide valid credentials ", [
           {
             text: "Cancel",
-            onPress: () => {},
+            onPress: () => { },
           },
           {
             text: "Continue",
-            onPress: () => {},
+            onPress: () => { },
           },
           { defaultIndex: 1 },
         ]);
@@ -87,11 +89,11 @@ const SignUp = ({ navigation }) => {
         [
           {
             text: "Cancel",
-            onPress: () => {},
+            onPress: () => { },
           },
           {
             text: "Continue",
-            onPress: () => {},
+            onPress: () => { },
           },
           { defaultIndex: 1 },
         ]
@@ -168,7 +170,7 @@ const SignUp = ({ navigation }) => {
           source={require("../../assets/anime/delivery.json")}
         />
 
-        <Text style={styles.titleLogin}>Foodly Family</Text>
+        <Text style={styles.titleLogin}>Neon Foodies</Text>
         <Formik
           initialValues={{
             email: "",

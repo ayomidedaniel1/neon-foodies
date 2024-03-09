@@ -32,17 +32,17 @@ const LoginPage = ({ navigation }) => {
   const animation = useRef(null);
   const [loader, setLoader] = useState(false);
   const [obsecureText, setObsecureText] = useState(false);
-  const {login, setLogin} = useContext(LoginContext)
+  const { login, setLogin } = useContext(LoginContext);
 
   const inValidForm = () => {
     Alert.alert("Invalid Form", "Please provide all required fields", [
       {
         text: "Cancel",
-        onPress: () => {},
+        onPress: () => { },
       },
       {
         text: "Continue",
-        onPress: () => {},
+        onPress: () => { },
       },
       { defaultIndex: 1 },
     ]);
@@ -110,11 +110,11 @@ const LoginPage = ({ navigation }) => {
         Alert.alert("Error Logging in ", "Please provide valid credentials ", [
           {
             text: "Cancel",
-            onPress: () => {},
+            onPress: () => { },
           },
           {
             text: "Continue",
-            onPress: () => {},
+            onPress: () => { },
           },
           { defaultIndex: 1 },
         ]);
@@ -127,11 +127,11 @@ const LoginPage = ({ navigation }) => {
         [
           {
             text: "Cancel",
-            onPress: () => {},
+            onPress: () => { },
           },
           {
             text: "Continue",
-            onPress: () => {},
+            onPress: () => { },
           },
           { defaultIndex: 1 },
         ]
@@ -151,7 +151,7 @@ const LoginPage = ({ navigation }) => {
           source={require("../../assets/anime/delivery.json")}
         />
 
-        <Text style={styles.titleLogin}>Foodly Family</Text>
+        <Text style={styles.titleLogin}>Neon Foodies</Text>
 
         <Formik
           initialValues={{ email: "", password: "" }}

@@ -11,6 +11,7 @@ import ProfileTile from "../components/ProfileTile";
 import RegistrationTile from "../components/RegistrationTile";
 
 const Profile = () => {
+  const { login, setLogin } = useContext(LoginContext);
   const [user, setUser] = useState(null);
 
   // const { user, isProfileLoading, error, refetch } = fetchProfile();
@@ -48,7 +49,7 @@ const Profile = () => {
               }}
             >
               <NetworkImage
-                source={user === null ? profile : user.profile}
+                data={user === null ? profile : user.profile}
                 width={45}
                 height={45}
                 radius={99}

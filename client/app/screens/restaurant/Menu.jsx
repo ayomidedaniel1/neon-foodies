@@ -1,9 +1,10 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext } from 'react';
-import { RestaurantContext } from '../../context/RestaurantContext';
+import { FlatList, View } from 'react-native';
+
+import CategoryFoodComp from '../../components/CategoryFoodComp';
 import uidata from '../../constants/uidata';
-import FoodTile from '../../components/FoodTile';
+import { RestaurantContext } from '../../context/RestaurantContext';
 
 const Menu = () => {
   const navigation = useNavigation();
@@ -18,8 +19,8 @@ const Menu = () => {
         keyExtractor={(item) => item._id}
         scrollEnabled
         renderItem={({ item }) => (
-          <View>
-            <FoodTile item={item} showDetails={() => navigation.navigate('food-nav', item)} />
+          <View style={{ left: 10, }}>
+            <CategoryFoodComp item={item} onPress={() => navigation.navigate('food-nav', item)} />
           </View>
         )}
       />
@@ -28,5 +29,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
-const styles = StyleSheet.create({});
