@@ -49,7 +49,7 @@ const Restaurant = ({ navigation }) => {
           <View style={styles.innerRating}>
             <RatingInput
               rating={Number(item.rating)}
-              size={20}
+              size={21}
             // color={COLORS.lightWhite}
             />
 

@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker, Polyline } from 'react-native-maps';
-import React, { useContext, useEffect, useState } from 'react';
 import { GOOGLE_MAPS_API_KEY } from '@env';
-import { UserLocationContext } from '../context/UserLocationContext';
+import React, { useContext, useEffect, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import MapView, { Marker, PROVIDER_GOOGLE, Polyline } from 'react-native-maps';
 import { COLORS, SIZES } from '../constants/theme';
-import axios from 'axios';
+import { UserLocationContext } from '../context/UserLocationContext';
 import PlaceMarker from './PlaceMarker';
 
 const GoogleMapsView = ({ placeList }) => {
@@ -46,7 +45,7 @@ const GoogleMapsView = ({ placeList }) => {
   ) => {
     try {
       const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${startLat},${startLng}&destination=${destinationLat},${destinationLng}&key=${apiKey}`;
-      const response = await axios.get(url);
+      const response = await fetch(url);
       const data = await response.json().then((data) => {
         setDirections(data);
         const encodedPolyline = data.routes[0].overview_polyline.points;
@@ -105,7 +104,7 @@ const GoogleMapsView = ({ placeList }) => {
         <Marker title='My Location' coordinate={mapRegion} />
 
         {placeList.map(
-          (item, index) => index <= 1 && <PlaceMarker coordinates={item} />
+          (item, index) => index <= 1 && <PlaceMarker coordinates={item} key={index} />
         )}
 
         <Polyline
