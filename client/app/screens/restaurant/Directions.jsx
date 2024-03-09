@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useContext } from 'react';
+import { RestaurantContext } from '../../context/RestaurantContext';
+import GoogleMapsView from '../../components/GoogleMapsView';
 
 const Directions = () => {
+  const { restaurantObj, setRestaurantObj } = useContext(RestaurantContext);
+  const coords = restaurantObj.coords;
+
   return (
     <View>
-      <Text>Directions</Text>
+      <GoogleMapsView placeList={[coords]} />
     </View>
   );
 };
