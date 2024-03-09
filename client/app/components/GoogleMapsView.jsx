@@ -5,9 +5,12 @@ import { GOOGLE_MAPS_API_KEY } from '@env';
 import { UserLocationContext } from '../context/UserLocationContext';
 import { COLORS, SIZES } from '../constants/theme';
 import axios from 'axios';
+import PlaceMarker from './PlaceMarker';
 
 const GoogleMapsView = ({ placeList }) => {
+  const apiKey = GOOGLE_MAPS_API_KEY;
   const { location, setLocation } = useContext(UserLocationContext);
+
   const [directions, setDirections] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
   const [mapRegion, setMapRegion] = useState({
@@ -16,9 +19,6 @@ const GoogleMapsView = ({ placeList }) => {
     latitudeDelta: 0.0522,
     longitudeDelta: 0.0421,
   });
-
-  const apiKey = GOOGLE_MAPS_API_KEY;
-  console.log(placeList[0]);
 
   useEffect(() => {
     if (location) {
@@ -29,7 +29,12 @@ const GoogleMapsView = ({ placeList }) => {
         longitudeDelta: 0.01,
       });
 
-      // fetchDirections(placeList.coords.longitude, location.coords.latitude, location.coords.longitude)
+      fetchDirections(
+        placeList[0].longitude,
+        placeList[0].latitude,
+        location.coords.latitude,
+        location.coords.longitude
+      );
     }
   }, [location, coordinates]);
 
@@ -96,7 +101,19 @@ const GoogleMapsView = ({ placeList }) => {
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         region={mapRegion}
-      />
+      >
+        <Marker title='My Location' coordinate={mapRegion} />
+
+        {placeList.map(
+          (item, index) => index <= 1 && <PlaceMarker coordinates={item} />
+        )}
+
+        <Polyline
+          coordinates={coordinates}
+          strokeColor={COLORS.primary}
+          strokeWidth={5}
+        />
+      </MapView>
     </View>
   );
 };
