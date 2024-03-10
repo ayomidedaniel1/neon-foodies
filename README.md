@@ -28,16 +28,16 @@ To install all dependencies, you need to run the following command:
 
 ```bash
 
-git clone https://github.com/the-aydev/neon-furnitures.git
+git clone https://github.com/ayomidedaniel1/neon-foodies.git
 
 cd neon-furnitures
 
-cd frontend
+cd client
 
 npm install
 npm start
 
-cd backend
+cd server
 npm start
 
 ```
