@@ -1,7 +1,5 @@
 # neon-foodies
 
-Mobile app built with React Native
-
 Neon foodies is a mobile app that allows users 
 
 ## Screenshots
